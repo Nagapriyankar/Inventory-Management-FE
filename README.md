@@ -36,7 +36,7 @@ Using Redux to achieve FE and BE connectivity
              cred - allow this req to get a form of credentials from api end points (cookies)
                     cookies from BE URL is saved in FE browser using this prop
         import axios in root folder to handle axios call
-
+                            
 ## Register.jsx
 
     handleInputChange
@@ -61,6 +61,22 @@ Using Redux to achieve FE and BE connectivity
 
   -----------------------------------------------------------------------
 
+### login setup (similar to register)
     
-
-
+    1. setup axios call to backend to login user
+    2. authservice:
+         add new arrow func to login user 
+         make axios call to backend /api/users/login
+    3. login.jsx : 
+        initialize state
+        initialize usestate , dispatch and navigate
+        handle input change
+        handle form submit  
+            validaion
+            create user data
+            login user by calling login authservice
+            dispatch set_login = true
+            dispatch set_email = email from data saved to database
+            navigate to login page            
+    4.  add loader in retun statement
+t

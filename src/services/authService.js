@@ -24,3 +24,23 @@ export const registerUser = async (userData) => {
     }
 }
 
+
+/*login user - axios call to backend with email and pwd */
+export const loginUser = async (userData) => {
+    try {
+        const response = await axios
+            .post(`${BE_URL}/api/users/login`, userData, /* { withCredentials: true } - this is made common in app.jsx */ 
+            )  // parameters sent in axios call - url,dataSenttoApiReq, cookie
+
+        if (response.statusText === "OK") {
+            toast.success('Login Successful...')
+        }
+        return response.data
+    }
+    catch (error) {
+        /* since error may received in dif forms */
+        const message = (
+            error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        toast.error(message)
+    }
+}
