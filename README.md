@@ -7,6 +7,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+-------------------------------------------------------------------------
 # Frontend - backend connectivity
 Using Redux to achieve FE and BE connectivity
     fetch data from BE , store it in redux and use in FE
@@ -50,6 +51,15 @@ Using Redux to achieve FE and BE connectivity
         dispatch set_name = name from data saved to database
         navigate to login page
 
+-------------------------------------------------------------------------
+## Loader Spinner setup
+
+    add loader in index.html
+    create loader component with
+        with full screen loader and spinner img
+    user this in auth pages and while fetching backend data
+
+  -----------------------------------------------------------------------
 
     
 

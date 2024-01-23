@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { registerUser } from "../../services/authService"
 import { useDispatch } from 'react-redux';
 import { SET_LOGIN, SET_NAME, SET_USER } from '../../redux/features/auth/authSlice';
+import Loader from '../../components/loader/Loader';
 
 
 
@@ -25,18 +26,18 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState(initialState)
   const { name, email, password, password2 } = formData
-  
+
   /* one function to hndle all input change */
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
-   }
+  }
 
   /* email validation */
   const validateEmail = (email) => {
     return email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-   }
-    
+  }
+
   /* input validation */
   const handleRregister = async (e) => {
     e.preventDefault()   //to prevent default behavior of reloading the page
@@ -57,7 +58,7 @@ function Register() {
     const userData = {
       name, email, password
     }
-    setIsLoading(true) //
+    setIsLoading(true)
 
     /* try to register user */
     try {
@@ -65,16 +66,17 @@ function Register() {
       await dispatch(SET_LOGIN(true))
       await dispatch(SET_NAME(data.name))
       navigate("/dashboard")
-      setIsLoading(false)  
+      setIsLoading(false)
     }
     catch (error) {
-      setIsLoading(false)  
-      setIsLoading(error.message)  
+      setIsLoading(false)
+      setIsLoading(error.message)
     }
-   }
+  }
 
   return (
     <div className='login template d-flex justify-content-center align-items-center 100-w vh-100 bg-primary'>
+      {isLoading && <Loader />}
       <div className='form-container p-5 rounded bg-white'>
         <form onSubmit={handleRregister}>
           <div className="--flex-center">
@@ -89,8 +91,8 @@ function Register() {
               required
               className="form-control"
               name="name"
-            value={name}
-            onChange= {handleInputChange} 
+              value={name}
+              onChange={handleInputChange}
             />
           </div>
           <div className="mb-3">
@@ -101,8 +103,8 @@ function Register() {
               required
               className="form-control"
               name="email"
-            value={email}
-            onChange={handleInputChange} 
+              value={email}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -112,9 +114,9 @@ function Register() {
               type="password"
               placeholder='Enter password...'
               className="form-control"
-              name = "password"
-            value={password}
-             onChange={handleInputChange} 
+              name="password"
+              value={password}
+              onChange={handleInputChange}
             />
           </div>
           <div className="mb-3">
@@ -123,9 +125,9 @@ function Register() {
               type="password"
               placeholder='confirm password...'
               className="form-control"
-              name = "password2"
-            value={password2}
-             onChange={handleInputChange} 
+              name="password2"
+              value={password2}
+              onChange={handleInputChange}
             />
           </div>
 
