@@ -24,7 +24,7 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState(initialState)
   const { email, password } = formData
-  
+
   /* one function to hndle all input change */
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -38,8 +38,9 @@ function Login() {
 
   /* form submit */
   const handleLogin = async (e) => {
+
     e.preventDefault()
-   
+
     /* validations */
     if (!email || !password) {
       return toast.error("All fields required")
@@ -56,26 +57,25 @@ function Login() {
 
     /* try to login user */
     try {
-      const data = await loginUser(userData)
-      console.log(data)
-      await dispatch(SET_LOGIN(true))
-      await dispatch(SET_NAME(data.name))
-      navigate("/dashboard")
-      setIsLoading(false)
+      const data = await loginUser(userData);
+      console.log(data);
+      await dispatch(SET_LOGIN(true));
+      await dispatch(SET_NAME(data.name));
+      navigate("/dashboard");
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
     }
-    catch (error) {
-      setIsLoading(false)
-      setIsLoading(error.message)
-    }
+
   }
 
   return (
     <div className='login template d-flex justify-content-center align-items-center 100-w vh-100 bg-primary'>
-      { isLoading && <Loader/>}
+      {isLoading && <Loader />}
       <div className='form-container p-5 rounded bg-white'>
         <form onSubmit={handleLogin}>
           <div className="--flex-center">
-            <RiLoginBoxFill size={35} color='#999'/>
+            <RiLoginBoxFill size={35} color='#999' />
           </div>
           <h3 className='text-center cred'>Login</h3>
           <div className="mb-3">
@@ -85,8 +85,8 @@ function Login() {
               placeholder='Enter name@domain.com...'
               className="form-control"
               name='email'
-            value={email}
-            onChange={handleInputChange} 
+              value={email}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -97,8 +97,8 @@ function Login() {
               placeholder='Enter password...'
               className="form-control"
               name='password'
-            value={password}
-             onChange={handleInputChange} 
+              value={password}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -116,7 +116,7 @@ function Login() {
             </p>
           </div>
 
-          
+
 
         </form>
       </div>

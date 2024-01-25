@@ -1,6 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const name= JSON.parse(localStorage.getItem("name"))
+
+try{
+  const name = JSON.parse(localStorage.getItem("name"))
+} catch (error) {
+  console.log(`Error : ${error}`)
+}
+
+
 
 /* initialize state - for authnticaton */
 const initialState = {

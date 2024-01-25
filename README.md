@@ -79,4 +79,29 @@ Using Redux to achieve FE and BE connectivity
             dispatch set_email = email from data saved to database
             navigate to login page            
     4.  add loader in retun statement
-t
+
+--------------------------------------------------------------------------
+
+### logout setup 
+
+    1. create logout service in authservice
+    2. handle logout click in header
+    3. dispatch set_login = false
+    4. dispath set_name = ""
+    5. navigate to home page
+------------------------------------------------------------------------
+
+### Forgot password setup 
+
+    1. create logout service in authservice
+    2. handle forget pwd in forget component
+   
+-------------------------------------------------------------------------
+
+### Reset password setup 
+
+
+
+
+
+

@@ -7,7 +7,7 @@ import Reset from './pages/auth/Reset'
 import Register from './pages/auth/Register'
 import Sidebar from './components/sidebar/Sidebar'
 import Layout from './components/layout/Layout'
-import Dashboard from './pages/dashboard/Dashboard' 
+import Dashboard from './pages/dashboard/Dashboard'
 import axios from "axios"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -26,16 +26,16 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot" element={<Forgot />} />
-        <Route path="/resetpwd/:resetid" element={<Reset />} />
+        <Route path="/resetpwd/:resetToken" element={<Reset />} />
         <Route path="/register" element={<Register />} />
 
         <Route path='/dashboard' element={
-          <Sidebar>  
-          <Layout>
-             <Dashboard/>
-            </Layout> 
-            </Sidebar>
-        }/>
+          <Sidebar>
+            <Layout>
+              <Dashboard />
+            </Layout>
+          </Sidebar>
+        } />
       </Routes>
 
 

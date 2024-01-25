@@ -41,7 +41,7 @@ function Register() {
   /* input validation */
   const handleRregister = async (e) => {
     e.preventDefault()   //to prevent default behavior of reloading the page
-    console.log(formData)
+    
     if (!name || !email || !password || !password2) {
       return toast.error("All fields required")
     }
