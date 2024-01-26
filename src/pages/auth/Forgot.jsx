@@ -17,6 +17,8 @@ function Forgot() {
 
   /* handle forget password */
   const handleForgetPwd = async (e) => {
+    e.preventDefault()
+
     /* validations */
     if (!email) {
       return toast.error("Please enter email")
@@ -28,8 +30,8 @@ function Forgot() {
       email
     }
     try {
-  await forgotPassword(userData)
-    setEmail("")
+      await forgotPassword(userData)
+      setEmail("")
     }
     catch (error) {
       console.log(error.message);

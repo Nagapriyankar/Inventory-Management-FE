@@ -3,6 +3,8 @@ import { DiYii } from "react-icons/di";
 import { Link } from 'react-router-dom';
 import "./Home.css"
 import invImg from '../../assets/invpng.png'
+import {ShowOnLogin} from '../../components/protect/HiddenLinks'
+import {ShowOnLogout} from '../../components/protect/HiddenLinks'
 
 
 
@@ -11,28 +13,34 @@ function Home() {
     /* nav section */
     <div className="home bg-primary">
       <nav className="container --flex-between">
-        <div className="logo"> 
+        <div className="logo">
           <DiYii size={35} />
           <Link to="/">Inventory Management Tool</Link>
         </div>
         <ul className="home-links">
+          <ShowOnLogout>
           <li>
             <Link to="/register">Register</Link>
           </li>
+          </ShowOnLogout>
+          <ShowOnLogout>
           <li>
             <button className="--btn --btn-primary">
               <Link to="/login">Login</Link>
             </button>
           </li>
+        </ShowOnLogout>
+      <ShowOnLogin>
           <li>
             <button className="--btn --btn-primary">
               <Link to="/dashboard">Dashboard</Link>
             </button>
-          </li>
+      </li>
+        </ShowOnLogin>
         </ul>
       </nav>
       {/* body section */}
-      
+
       <section className="container bodyC">
         <div className="body-text">
           <h2>Inventory Management System</h2>

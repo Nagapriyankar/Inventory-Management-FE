@@ -72,7 +72,7 @@ export const forgotPassword = async (userData) => {
         const response = await axios
             .post(`${BE_URL}/api/users/forgotpwd`, userData)  
         console.log("response:", response)
-        return response.data
+        toast.success(response.data.message)
     }
     catch (error) {
         /* since error may received in dif forms */

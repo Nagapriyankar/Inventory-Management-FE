@@ -41,6 +41,7 @@ function Reset() {
       return toast.error("Password must contain atleast 6 character")
     }
 
+    
     const userData = {
       password, password2
     }
