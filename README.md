@@ -99,6 +99,35 @@ Using Redux to achieve FE and BE connectivity
 -------------------------------------------------------------------------
 
 ### Reset password setup 
+    
+    1. create reset pwd service in authservice
+    2. handle reset pwd page
+    3. on success, navigate to login page
+-------------------------------------------------------------------------
+
+### creating hidelink component - with using auth service
+    this will handle the home page menu items
+    login - Dashboard visible
+    logout - Register, Login Visible
+    selectIsLoggedIn declared in authSlice is used to check login status
+    This is set true while user login 
+        1. create two functions - showonlogin , showonlogout
+        2.import this in home page and enclose it for each menu link
+    This will be refreshed on page refresh, to avoid this, do below
+-------------------------------------------------------------------------
+
+### to check login status and load menu item  accordingly to handle above issue
+
+    1. create auth service to ccheck login status
+    2. this will return true or false from backend
+    3. app.jsx
+        * every time when window loads, check login status, save it in redux using useEffect
+        * import dispatch, useEffect
+        * useeffect -> call getLoginStatus auth 
+        * SET_LOGIN from authslice is dispatch to 'res'
+-------------------------------------------------------------------------
+
+
 
 
 

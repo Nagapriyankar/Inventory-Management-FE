@@ -32,27 +32,21 @@ function Reset() {
     if (!password || !password2) {
       return toast.error("All fields required")
     }
-
     if (password !== password2) {
       return toast.error("Password do not match")
     }
-
     if (password.length < 6) {
       return toast.error("Password must contain atleast 6 character")
     }
-
-    
     const userData = {
       password, password2
     }
-
     try {
       const data = await resetPassword(userData, resetToken);
       navigate("/login")
     } catch (error) {
       console.log(error.message);
     }
-
   }
 
   return (
