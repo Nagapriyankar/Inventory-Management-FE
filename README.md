@@ -123,11 +123,19 @@ Using Redux to achieve FE and BE connectivity
     3. app.jsx
         * every time when window loads, check login status, save it in redux using useEffect
         * import dispatch, useEffect
-        * useeffect -> call getLoginStatus auth 
+        * useeffect -> call getLoginStatus auth  
         * SET_LOGIN from authslice is dispatch to 'res'
 -------------------------------------------------------------------------
 
+### navigate to home page on cookie expire - implementation
 
+src folder - customHook > useRedirectLoggedOutUser.js
+    1. using useEffect to run once
+    2. use dispatch
+    3. useNavigate to navigate to homw page
+    4. getLoginStatus from auth service
+    4. set_login from auth slice
+    
 
 
 

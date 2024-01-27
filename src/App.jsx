@@ -25,6 +25,7 @@ function App() {
 
   const dispatch = useDispatch()   //dispatch in app is used to store details -logged in or not
 
+  //useEffect will run once
   useEffect(() => { 
     async function loginStatus() {
       const status = await getLoginStatus()
