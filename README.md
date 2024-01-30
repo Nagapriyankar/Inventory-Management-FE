@@ -25,7 +25,7 @@ Using Redux to achieve FE and BE connectivity
         * npm i react-toastify axios
         * create authservice file
 
-## authservice 
+### authservice 
     this file contains all http request sends to backend
 
     1. Register : setup axios call to backend to register user
@@ -37,7 +37,7 @@ Using Redux to achieve FE and BE connectivity
                     cookies from BE URL is saved in FE browser using this prop
         import axios in root folder to handle axios call
                             
-## Register.jsx
+### Register.jsx
 
     handleInputChange
     handleformsubmit
@@ -134,8 +134,64 @@ src folder - customHook > useRedirectLoggedOutUser.js
     2. use dispatch
     3. useNavigate to navigate to homw page
     4. getLoginStatus from auth service
-    4. set_login from auth slice
+    4. set_login from auth ---------------------------------------------------------------------
+
+## Products Handle
+    let us setup redux to handle product data and various actions like add, delete, update, view product
+
+#### create productSlice.js
+    import createSlice, createasyncthunk redux toolkit
+    initialize state
+    create reducer inside produtslice
+    export productslice action and reducer
     
+#### store.js
+    import configureStore
+    create a store and add reducers inside 
+
+#### create productService.js
+All http req to BE written here
+    write  axios call to BE
+    Export the function
+
+-----------------------------------------------------------------
+## createProduct service:
+productService:
+    create AAF 
+    axios call to BE URL, with formData 
+productSlice:
+    create AAF using createAsyncThunk
+    execute productService.createProduct inside try catch
+
+3states an Http req can take:
+pending : made an req, donot get either res / error
+success : desired req / res
+error   : made req / not desired res
+
+to capture thesse states, use extra reducers
+
+#### addproduct - pages
+    1. initialize states with input parameter
+    2. create useState for product, image, descripption, imagePreview
+    3. take isLoading state from productSlice using useSSelctor
+    4. destructure values from input product
+    5. handleInputChange
+    6. handleImageChange
+    7. generate sku(catagory)
+    8. save the input details to formData
+    9. call productSlice.createProduct(formData)
+    10. navigate to dashboard
+
+
+
+
+
+
+
+    
+
+
+
 
 
 
