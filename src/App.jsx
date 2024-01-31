@@ -7,9 +7,10 @@ import Reset from './pages/auth/Reset'
 import Register from './pages/auth/Register'
 import Sidebar from './components/sidebar/Sidebar'
 import Layout from './components/layout/Layout'
-import Dashboard from './pages/dashboard/Dashboard'
+import Dashboard from './pages/dashboard/Dashboard'      
+import AddProduct from './pages/addProduct/AddProduct'
 import axios from "axios"
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
@@ -45,6 +46,7 @@ function App() {
         <Route path="/resetpwd/:resetToken" element={<Reset />} />
         <Route path="/register" element={<Register />} />
 
+        {/* dashboard route */}
         <Route path='/dashboard' element={
           <Sidebar>
             <Layout>
@@ -52,6 +54,17 @@ function App() {
             </Layout>
           </Sidebar>
         } />
+        {/* dashboard route */}
+
+        {/* add product route */}
+        <Route path='/add-product' element={
+          <Sidebar>
+            <Layout>
+              <AddProduct />
+            </Layout>
+          </Sidebar>
+        } />
+        {/* add product route */}
       </Routes>
 
 

@@ -50,9 +50,9 @@ const productSlice = createSlice({
         state.products.push(action.payload)
         toast.success("Product added successfully")
       })
-      .addCase(createProduct.rejected, (state) => {
+      .addCase(createProduct.rejected, (state, action) => {
         state.isLoading = false
-        state.isEroor = true
+        state.isError = true
         state.message = action.payload
         toast.success(action.payload)
       })

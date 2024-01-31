@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import ProductForm from '../../components/productForm/ProductForm'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { createProduct, selectIsLoading } from '../../redux/features/product/productSlice'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import Loader from '../../components/loader/Loader'
 
 
 //initialize states - form input
@@ -15,6 +16,9 @@ const initialState = {
 
 const AddProduct = () => {
 
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
+
     //creating usestate for reuired value
     const [product, setProduct] = useState(initialState)
     const [productImage, setProductImage] = useState("")
@@ -22,7 +26,7 @@ const AddProduct = () => {
     const [description, setDescription] = useState("")
 
     const isLoading = useSelector(selectIsLoading)  //this is from product slice
-r
+
     const {name, catagory, price, quantity } = product //destructure input value
 
     //handle form input value
@@ -32,18 +36,18 @@ r
     }
 
     //handle image - to get image, to preview image
-    const handleImageChange = () => { 
+    const handleImageChange = (e) => { 
         setProductImage(e.target.files[0])
-        setImagePreview(url.createObjectURL(e.target.files[0]))  //createObjectURL will give temp access to preview the file 
+        setImagePreview(URL.createObjectURL(e.target.files[0]))  //createObjectURL will give temp access to preview the file 
     }
     
     //sku contains - letter from 'catagory' and numbers
     const generateSKU = (catagory) => {
-        const letter = catagory.slice(0, 3).toUpperCase()
-        const number = Date.now;
-        const sku = letter + "-" + number
-        return sku
-    }
+        const letter = catagory.slice(0, 3).toUpperCase();
+        const number = Date.now();
+        const sku = letter + "-" + number;
+        return sku;
+    };
 
     //creating form data and  productslice call to createProduct functionality
     const saveProduct = async (e) => {
@@ -54,18 +58,20 @@ r
         formData.append("catagory", catagory)
         formData.append("quantity", quantity)
         formData.append("price", price)
-        formData.append("descripion", description)
+        formData.append("description", description)
         formData.append("image", productImage)
 
         console.log(...formData)
-        await dispatch(createProduct(formData))
 
-        Navigate("/dashboard")
+        //save to database
+        await dispatch(createProduct(formData))
+        navigate("/dashboard")
 
    }
 
   return (
       <div>
+          {isLoading && <Loader />}
           <h1 className='container'>Add New Product</h1>      
           <ProductForm
             product = {product}
