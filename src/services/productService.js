@@ -12,8 +12,14 @@ export const createProduct = async (formData) => {
     return res.data
 }
 
+//get all product
+export const getProducts = async () => {
+    const res = await axios.get(`${BE_URL}/api/products/getallproduct`)
+    return res.data
+}
+
 const productService = {
-    createProduct
+    createProduct, getProducts
 }
 //createProduct can accessed thro product serv
 export default productService
