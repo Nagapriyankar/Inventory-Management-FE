@@ -32,7 +32,7 @@ export const createProduct = createAsyncThunk(
 //get allproduct
 export const getProducts = createAsyncThunk(
   "products/getall", 
-  async (formData, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       return await productService.getProducts()
     } catch (error) { 
@@ -80,7 +80,6 @@ const productSlice = createSlice({
         state.isError = false
         console.log(action.payload)
         state.products =(action.payload)
-        toast.success("Product added successfully")
       })
       .addCase(getProducts.rejected, (state, action) => {
         state.isLoading = false
