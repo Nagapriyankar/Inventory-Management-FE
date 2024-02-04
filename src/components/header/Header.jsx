@@ -11,7 +11,8 @@ function Header() {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const name = useSelector(selectName)   //select name from authslice using useselector, this name is taken from local storage , dispatch(set_name) while login
+  const name = useSelector(selectName)
+  //select name from authslice using useselector, this name is taken from local storage , dispatch(set_name) while login
 
   const handleLogout = async () => {
     await logoutUser()

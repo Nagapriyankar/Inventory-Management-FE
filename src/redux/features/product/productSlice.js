@@ -23,7 +23,6 @@ export const createProduct = createAsyncThunk(
       const message = (
         error.response && error.response.data && error.response.data.message) || error.message || error.toString()
       toast.error(message)
-      console.log(message)
       return thunkAPI.rejectWithValue(message)
     }
   }

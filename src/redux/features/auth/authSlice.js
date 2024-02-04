@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 
-try{
+try {
+  //getting name from loacal storage
   const name = JSON.parse(localStorage.getItem("name"))
 } catch (error) {
   console.log(`Error : ${error}`)

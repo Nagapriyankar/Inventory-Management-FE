@@ -1,5 +1,4 @@
 import React from 'react'
-import AddProduct from '../../pages/addProduct/AddProduct'
 //react quill to support rich text editor
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';

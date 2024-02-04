@@ -182,8 +182,59 @@ to capture thesse states, use extra reducers
     9. call productSlice.createProduct(formData)
     10. navigate to dashboard
 
+--------------------------------------------------------
 
 
+ <div className='product-list'>
+    <hr />
+    < div className="table" >
+      <div className="--flex-between --flex-dir-column">
+        <span>
+          <h3>Inventory Items</h3>
+        </span>
+        <span>
+          <h3>Search Products</h3>
+        </span>
+      </div>
+      {isLoading && <SpinnerImg />}
+      <div className="table">
+        {!isLoading && products.length == 0 ? (
+          <p>-- No product found, please add a product...</p>
+        ) : (
+            <table>
+              <thead>
+                <tr>
+                  <th>s/n</th>
+                  <th>Name</th>
+                  <th>Catagory</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Value</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  products.map((product, index)  => {
+                    const {_id, name, catagory, price, quantity} = product
+                    return (
+                      <tr key={_id}>
+                        <td>{index+1}</td>
+                        <td>{shortenText(name, 16)}</td>
+                        <td>{catagory}</td>
+                        <td>{price}</td>
+                        <td>{$}{price * quantity}</td>
+                        
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+        )}
+      </div>
+    </div> 
+  </div>
 
 
 
