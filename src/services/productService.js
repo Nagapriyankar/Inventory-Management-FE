@@ -27,7 +27,8 @@ export const deleteProduct = async (id) => {
 
 // Get a Product
 const getProduct = async (id) => {
-    const res = await axios.get(API_URL + id);
+    const res = await axios.get(`${BE_URL}/api/products/getproduct/` + id);
+    console.log(res)
     return res.data;
 };
 

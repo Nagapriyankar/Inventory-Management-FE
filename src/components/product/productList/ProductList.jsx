@@ -10,6 +10,7 @@ import ReactPaginate from 'react-paginate';
 import { confirmAlert } from 'react-confirm-alert'; //to genrate alert message
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { deleteProduct, getProducts } from '../../../redux/features/product/productSlice';
+import { Link } from 'react-router-dom';
 
 
 const ProductList = ({ products, isLoading }) => {
@@ -125,7 +126,9 @@ return (
                       <td>{"$"}{price * quantity}</td>
                       <td className='icons'>
                         <span>
-                          <AiOutlineEye size={20} color='purple' />
+                          <Link to={`/product-details/${_id}`}>
+                            <AiOutlineEye size={20} color='purple' />
+                          </Link>
                         </span>
                         <span>
                           <FaEdit size={20} color='green' />
