@@ -21,14 +21,25 @@ export const getProducts = async () => {
 
 //delete product
 export const deleteProduct = async (id) => {
-    console.log("product service")
     const res = await axios.delete(`${BE_URL}/api/products/delete/` + id)
+    return res.data
+}
+
+// Get a Product
+const getProduct = async (id) => {
+    const res = await axios.get(API_URL + id);
+    return res.data;
+};
+
+//update product
+export const updateProduct = async (id, formData) => {
+    const res = await axios.patch(`${BE_URL}/api/products/update/` + id, formData)
     return res.data
 }
 
 
 const productService = {
-    createProduct, getProducts, deleteProduct
+    createProduct, getProducts, deleteProduct, updateProduct, getProduct, updateProduct
 }
 //createProduct can accessed thro product serv
 export default productService
