@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectIsLoggedIn } from '../../redux/features/auth/authSlice'
 import { getProducts } from '../../redux/features/product/productSlice'
 import ProductList from '../../components/product/productList/ProductList'
+import ProductSummary from '../../components/product/productSummary/ProductSummary'
 
 const Dashboard = () => {
   //check if user is logged in and session is active
@@ -28,7 +29,8 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2>View Products</h2>
+      <h2>Dashboard</h2>
+      <ProductSummary products={products} />
       <ProductList products={products} isLoading=
         {isLoading} />
     </div>

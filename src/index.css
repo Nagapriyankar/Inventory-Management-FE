@@ -502,6 +502,7 @@ a:hover {
     min-height: 200px;
 }
 
+/* 
 .pagination {
     list-style: none;
     display: flex;
@@ -528,6 +529,7 @@ a:hover {
 
 .activePage {
     color: #fff;
-    background-color: var(--light-blue);
-    height: 100%;
+    background-color: var(--light-green);
+    height: 120%;
 }
+ */

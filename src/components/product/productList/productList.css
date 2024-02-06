@@ -87,8 +87,9 @@
     background-color: var(--light-blue);
 }
 
-.activePage {
+.pagination .activePage {
     color: #fff;
     background-color: var(--light-blue);
     height: 100%;
+
 }

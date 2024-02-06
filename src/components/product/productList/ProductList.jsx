@@ -29,7 +29,7 @@ const ProductList = ({ products, isLoading }) => {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 5
+  const itemsPerPage = 2
 
   // Simulate fetching items from another resources.
   // (This could be items from props; or items loaded in a local state
@@ -121,7 +121,7 @@ const ProductList = ({ products, isLoading }) => {
           breakLabel="..."
           nextLabel="Next"
           onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
+          pageRangeDisplayed={2}
           pageCount={pageCount}
           previousLabel="Prev"
           renderOnZeroPageCount={null}
