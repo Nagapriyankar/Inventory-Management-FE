@@ -14,7 +14,6 @@ export const createProduct = async (formData) => {
 
 //get all product
 export const getProducts = async () => {
-    console.log("get sservice")
     const res = await axios.get(`${BE_URL}/api/products/getallproduct`)
     return res.data
 }

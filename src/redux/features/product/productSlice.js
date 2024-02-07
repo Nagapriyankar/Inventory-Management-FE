@@ -36,7 +36,6 @@ export const getProducts = createAsyncThunk(
   "products/getall",
   async (_, thunkAPI) => {
     try {
-      console.log("get all  thunk")
       return await productService.getProducts()
     } catch (error) {
       const message = (
@@ -52,7 +51,6 @@ export const deleteProduct = createAsyncThunk(
   "products/delete",
   async (id, thunkAPI) => {
     try {
-      console.log("productSlice")
       return await productService.deleteProduct()
     } catch (error) {
       const message = (
@@ -234,5 +232,6 @@ export const selectIsLoading = (state) => state.product.isLoading
 export const selectTotalStoreValue = (state) => state.product.totalStoreValue
 export const selectOutOfStock = (state) => state.product.outOfStock
 export const selectCatagory = (state) => state.product.catagory
+export const selectProduct = (state) => state.product.product
 
 export default productSlice.reducer
