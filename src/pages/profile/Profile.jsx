@@ -5,7 +5,7 @@ import useRedirectLoggedOutUser from '../../customHook/useRedirectLoggedOutUser'
 import { useDispatch } from 'react-redux'
 import { selectIsLoading } from '../../redux/features/product/productSlice'
 import { getUser } from '../../services/authService'
-import { SET_USER } from '../../redux/features/auth/authSlice'
+import { SET_NAME, SET_USER } from '../../redux/features/auth/authSlice'
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 

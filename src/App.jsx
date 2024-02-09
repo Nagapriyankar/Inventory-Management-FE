@@ -19,6 +19,7 @@ import { getLoginStatus } from './services/authService'
 import ProductDetail from './components/product/productDetail/productDetail'
 import EditProduct from './pages/editProduct/EditProduct'
 import Profile from './pages/profile/Profile'
+import EditProfile from './pages/profile/EditProfile'
 
 
 
@@ -89,7 +90,7 @@ function App() {
         } />
         {/* edit route */}
 
-        {/* edit route */}
+        {/* get profile det route */}
         <Route path='/profile' element={
           <Sidebar>
             <Layout>
@@ -97,7 +98,17 @@ function App() {
             </Layout>
           </Sidebar>
         } />
-        {/* edit route */}
+        {/* get profilr det route */}
+
+        {/* edit  profile det route */}
+        <Route path='/edit-profile' element={
+          <Sidebar>
+            <Layout>
+              <EditProfile />
+            </Layout>
+          </Sidebar>
+        } />
+        {/* edit profilr det route */}
       </Routes>
 
 
