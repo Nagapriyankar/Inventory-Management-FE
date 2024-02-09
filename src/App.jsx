@@ -18,6 +18,7 @@ import { SET_LOGIN } from './redux/features/auth/authSlice'
 import { getLoginStatus } from './services/authService'
 import ProductDetail from './components/product/productDetail/productDetail'
 import EditProduct from './pages/editProduct/EditProduct'
+import Profile from './pages/profile/Profile'
 
 
 
@@ -83,6 +84,16 @@ function App() {
           <Sidebar>
             <Layout>
               <EditProduct />
+            </Layout>
+          </Sidebar>
+        } />
+        {/* edit route */}
+
+        {/* edit route */}
+        <Route path='/profile' element={
+          <Sidebar>
+            <Layout>
+              <Profile />
             </Layout>
           </Sidebar>
         } />

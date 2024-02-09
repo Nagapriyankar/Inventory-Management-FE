@@ -40,6 +40,7 @@ const authSlice = createSlice({
     /* save user object */
     SET_USER(state, action) {
       const profile = action.payload;
+      console.log(action.payload)
       state.user.name = profile.name;
       state.user.email = profile.email;
       state.user.phone = profile.phone;

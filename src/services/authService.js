@@ -46,6 +46,21 @@ export const loginUser = async (userData) => {
     }
 }
 
+/*get user data- axios call to backend to fetch current loggedin user */
+export const getUser = async () => {
+    try {
+        const response = await axios.get(`${BE_URL}/api/users/getuser`)
+        return response.data
+    } catch (error) {
+        console.log(error)
+        const message =
+            (error.response && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString();
+        toast.error(message);
+    }
+}
+
 /*logout user - axios call to backend without props */
 export const logoutUser = async () => {
     try {
