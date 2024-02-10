@@ -76,7 +76,7 @@
     .body-image {
         width: 100%;
 
-        &img {
+        :is(img) {
             width: 100%;
         }
     }
