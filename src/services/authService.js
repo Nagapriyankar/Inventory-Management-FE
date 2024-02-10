@@ -2,12 +2,14 @@
 
 import axios from "axios"
 import { toast } from "react-toastify"
+import config from "../utils/config"
 
-export const BE_URL = "http://localhost:5000"
+export const BE_URL = config.API_URL
+
 
 /* register user - axios call to backend with userdata */
 export const registerUser = async (userData) => {
-    try { 
+    try {
         const response = await axios
             .post(`${BE_URL}/api/users/register`, userData, { withCredentials: true })  // parameters sent in axios call - url,dataSenttoApiReq, cookie
         console.log(response)
@@ -81,8 +83,8 @@ export const logoutUser = async () => {
     try {
         const response = await axios
             .get(`${BE_URL}/api/users/logout`, /* { withCredentials: true } - this is made common in app.jsx */
-        )  // parameters sent in axios call - url,dataSenttoApiReq, cookie
-        
+            )  // parameters sent in axios call - url,dataSenttoApiReq, cookie
+
         if (response.statusText === "OK") {
             toast.success('Logout Successful...')
         }
@@ -100,7 +102,7 @@ export const logoutUser = async () => {
 export const forgotPassword = async (userData) => {
     try {
         const response = await axios
-            .post(`${BE_URL}/api/users/forgotpwd`, userData)  
+            .post(`${BE_URL}/api/users/forgotpwd`, userData)
         console.log("response:", response)
         toast.success(response.data.message)
     }
@@ -137,7 +139,7 @@ export const resetPassword = async (userData, resetToken) => {
 }
 
 //get login status
-export const getLoginStatus = async () => { 
+export const getLoginStatus = async () => {
     try {
         const response = await axios.get(
             `${BE_URL}/api/users/loggedin`,

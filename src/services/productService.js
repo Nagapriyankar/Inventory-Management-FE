@@ -1,8 +1,9 @@
 /* this file contains all http request sends to backend */
 
 import axios from "axios"
+import config from "../utils/config"
 
-export const BE_URL = "http://localhost:5000"
+export const BE_URL = config.API_URL
 
 
 //create new product

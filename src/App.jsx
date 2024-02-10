@@ -20,6 +20,7 @@ import ProductDetail from './components/product/productDetail/productDetail'
 import EditProduct from './pages/editProduct/EditProduct'
 import Profile from './pages/profile/Profile'
 import EditProfile from './pages/profile/EditProfile'
+import Contact from './pages/contact/Contact'
 
 
 
@@ -109,6 +110,16 @@ function App() {
           </Sidebar>
         } />
         {/* edit profilr det route */}
+
+        {/* report bug route */}
+        <Route path='/contact-us' element={
+          <Sidebar>
+            <Layout>
+              <Contact />
+            </Layout>
+          </Sidebar>
+        } />
+        {/* report bug route*/}
       </Routes>
 
 
