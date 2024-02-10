@@ -6,6 +6,7 @@ import Loader from '../../components/loader/Loader'
 import { Card } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { updateUser } from '../../services/authService'
 
 const EditProfile = () => {
     const navigate = useNavigate()
@@ -13,13 +14,13 @@ const EditProfile = () => {
     const user = useSelector(selectUser)  //useSelector- helps to select from slice
 
     //when page refresh, redux state is lost and user details will be removed from the form, to handle this 
-    const {email} = user
+    const { email } = user
 
     useEffect(() => {
         if (!email) {
             navigate("/profile")
         }
-    },[email, navigate])
+    }, [email, navigate])
 
     console.log(user)
     const initialState = {
@@ -46,13 +47,18 @@ const EditProfile = () => {
 
     //save updated data - communicate to BE , save image to cloudinary from FE
     const handleSaveProfile = async (e) => {
-        e.preventDefalut()
+        e.preventDefault()
         setIsLoading(true)
         try {
             //save profie data
             //handle image upload
             let imageUrl
-            if (profileImage && (profileImage.type === "image/jpg" || profileImage.type === "image/jpeg" || profileImage.type === "image/png")) {
+            if (
+                profileImage &&
+                (profileImage.type === "image/jpeg" ||
+                    profileImage.type === "image/jpg" ||
+                    profileImage.type === "image/png")
+            ) {
                 const image = new FormData()
                 image.append("file", profileImage)
                 image.append("cloud_name", "dwfh8lnfl")
@@ -62,9 +68,10 @@ const EditProfile = () => {
                 const response = await fetch("https://api.cloudinary.com/v1_1/dwfh8lnfl/image/upload",
                     { method: "post", body: image })
                 const imageData = await response.json()
-                imageUrl = imageData.url.tostring()
-                console.log(imageData);
+                imageUrl = imageData.url.toString()
+                console.log(imageData);     
                 toast.success("Image Uploaded sucessfully")
+            }    
 
                 //save Profile
                 const formData = {
@@ -73,7 +80,13 @@ const EditProfile = () => {
                     bio: profile.bio,
                     photo: profileImage ? imageUrl : profile.photo,
                 }
-            }
+
+                const data = await updateUser(formData)
+                console.log(data);
+                toast.success("User Updated")
+                navigate("/profile")
+                setIsLoading(false)
+          
 
         } catch (error) {
             console.log(error);
@@ -138,7 +151,7 @@ const EditProfile = () => {
                             <input
                                 type="file"
                                 name="image"
-                                onChange={handleInputChange}
+                                onChange={handleImageChange}
                             />
                         </p>
                         <div>

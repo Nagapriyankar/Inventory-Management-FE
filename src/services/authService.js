@@ -61,6 +61,21 @@ export const getUser = async () => {
     }
 }
 
+/*user profile -  axios call to backend to update profile details*/
+export const updateUser = async (formData) => {
+    try {
+        const response = await axios.patch(`${BE_URL}/api/users/updateuser`, formData)
+        return response.data
+    } catch (error) {
+        console.log(error)
+        const message =
+            (error.response && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString();
+        toast.error(message);
+    }
+}
+
 /*logout user - axios call to backend without props */
 export const logoutUser = async () => {
     try {
