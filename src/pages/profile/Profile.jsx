@@ -55,7 +55,7 @@ const Profile = () => {
                                 <b>BIO: </b> {profile?.bio}
                             </p>
                             <div>
-                                <Link to="/edit-profie">
+                                <Link to="/edit-profile">
                                     <button className='--btn --btn-primary'>Edit Profile</button>
                                 </Link>
                             </div>
