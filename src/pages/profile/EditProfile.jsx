@@ -7,6 +7,7 @@ import { Card } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { updateUser } from '../../services/authService'
+import ChangePwd from '../../components/changepwd/ChangePwd'
 
 const EditProfile = () => {
     const navigate = useNavigate()
@@ -160,7 +161,7 @@ const EditProfile = () => {
                     </span>
                 </form>
             </Card>
-
+            <ChangePwd />
         </div>
     )
 }

@@ -51,7 +51,7 @@ export const deleteProduct = createAsyncThunk(
   "products/delete",
   async (id, thunkAPI) => {
     try {
-      return await productService.deleteProduct()
+      return await productService.deleteProduct(id)
     } catch (error) {
       const message = (
         error.response && error.response.data && error.response.data.message) || error.message || error.toString()
@@ -83,7 +83,7 @@ export const getProduct = createAsyncThunk(
 // update product
 export const updateProduct = createAsyncThunk(
   "products/updateProduct",
-  async ({id, formData}, thunkAPI) => {
+  async ({ id, formData }, thunkAPI) => {
     try {
       return await productService.updateProduct(id, formData);
     } catch (error) {
