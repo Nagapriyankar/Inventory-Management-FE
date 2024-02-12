@@ -34,9 +34,9 @@ const Contact = () => {
       <h3 className="--mt">Contact Us</h3>
       <div className='section'>
        {/*  form section */}
-        <form onSubmit={sendEmail}>
+        <form name="contactus" onSubmit={sendEmail}>
           <Card className="card">
-            <label htmlFor="">Subject</label>
+            <label htmlFor="subject">Subject</label>
             <input
               type="text"
               name="subject"
@@ -46,7 +46,7 @@ const Contact = () => {
               onChange={(e) => { setSubject(e.target.value) }}
             />
 
-            <label>Message</label>
+            <label htmlFor="messsage">Message</label>
             <textarea
               cols="30"
               rows="10"

@@ -106,10 +106,10 @@ const EditProfile = () => {
                 <span className="profile-Photo">
                     <img src={user?.photo} alt="profile-pic" />
                 </span>
-                <form className="--form-control --m" onSubmit={handleSaveProfile}>
+                <form name="editprofile" className="--form-control --m" onSubmit={handleSaveProfile}>
                     <span className="profile-data">
                         <p>
-                            <label>Name</label>
+                            <label htmlFor='name'>Name</label>
                             <input
                                 type="text"
                                 name='name'
@@ -118,7 +118,7 @@ const EditProfile = () => {
                             />
                         </p>
                         <p>
-                            <label>Email</label>
+                            <label htmlFor='email'>Email</label>
                             <input
                                 type="text"
                                 name='email'
@@ -129,7 +129,7 @@ const EditProfile = () => {
                             <code>Email cannot be changed</code>
                         </p>
                         <p>
-                            <label>Phone</label>
+                            <label htmlFor='phone'>Phone</label>
                             <input
                                 type="text"
                                 name='phone'
@@ -138,7 +138,7 @@ const EditProfile = () => {
                             />
                         </p>
                         <p>
-                            <label>Bio</label>
+                            <label htmlFor="bio">Bio</label>
                             <textarea
                                 name="bio"
                                 value={profile?.bio}
@@ -148,7 +148,7 @@ const EditProfile = () => {
                             ></textarea>
                         </p>
                         <p>
-                            <label>Photo</label>
+                            <label htmlFor="image">Photo</label>
                             <input
                                 type="file"
                                 name="image"

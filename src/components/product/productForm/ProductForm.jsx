@@ -10,10 +10,10 @@ const ProductForm = ({ product, productImage, imagePreview, description, setDesc
     return (
         <div className="add-product">
             <Card className={"card"}>
-                <form onSubmit={saveProduct}>
+                <form name="addproduct" onSubmit={saveProduct}>
                     {/* product image card */}
                     <Card className={"group"}>
-                        <label>Product Image</label>
+                        <label htmlFor="image">Product Image</label>
                         <code className="--color-dark">
                             Supported Formats: jpg, jpeg, png
                         </code>
@@ -33,7 +33,7 @@ const ProductForm = ({ product, productImage, imagePreview, description, setDesc
                     </Card>
                     {/* product image card */}
 
-                     <label>Product Name:</label>
+                    <label htmlFor="name">Product Name:</label>
                     <input
                         type="text"
                         placeholder="Product name"
@@ -41,8 +41,8 @@ const ProductForm = ({ product, productImage, imagePreview, description, setDesc
                         value={product?.name}  //optional chaining
                         onChange={handleInputChange}
                     />
-                    
-                    <label>Product Category:</label>
+
+                    <label htmlFor="catagory">Product Category:</label>
                     <input
                         type="text"
                         placeholder="Product Category"
@@ -51,7 +51,7 @@ const ProductForm = ({ product, productImage, imagePreview, description, setDesc
                         onChange={handleInputChange}
                     />
 
-                    <label>Product Price:</label>
+                    <label htmlFor="price">Product Price:</label>
                     <input
                         type="text"
                         placeholder="Product Price"
@@ -60,7 +60,7 @@ const ProductForm = ({ product, productImage, imagePreview, description, setDesc
                         onChange={handleInputChange}
                     />
 
-                    <label>Product Quantity:</label>
+                    <label htmlFor="quantity">Product Quantity:</label>
                     <input
                         type="text"
                         placeholder="Product Quantity"
@@ -68,29 +68,40 @@ const ProductForm = ({ product, productImage, imagePreview, description, setDesc
                         value={product?.quantity}
                         onChange={handleInputChange}
                     />
-                    
-                    <label>Product Description:</label>
+
+                    <label htmlFor="description">Product Description:</label>
+                    <textarea
+                        cols="97"
+                        rows="10"
+                        type="text"
+                        name="message"
+                        placeholder='Description Here..'
+                        required
+                        value={description}
+                        onChange={(e) => { setDescription(e.target.value) }}
+                    ></textarea>
+
                     {/* format from documentation */}
-                    <ReactQuill
+                    {/* <ReactQuill
                         theme="snow"
                         value={description}
                         onChange={setDescription}
                         modules={ProductForm.modules}
                         formats={ProductForm.formats}
-                    />
+                    /> */}
 
                     <div className="--my">
                         <button type="submit" className="--btn --btn-primary">
                             Save Product
                         </button>
-                    </div> 
+                    </div>
                 </form>
             </Card>
         </div>
     );
 };
 
-ProductForm.modules = {
+/* ProductForm.modules = {
     toolbar: [
         [{ header: "1" }, { header: "2" }, { font: [] }],
         [{ size: [] }],
@@ -125,6 +136,6 @@ ProductForm.formats = [
     "image",
     "code-block",
     "align",
-];
+]; */
 
 export default ProductForm;

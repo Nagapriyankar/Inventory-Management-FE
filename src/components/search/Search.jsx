@@ -8,6 +8,7 @@ const Search = ({ value, onChange }) => {
             <BiSearch size={18} className="icon" />
             <input
                 type="text"
+                name="search"
                 placeholder="Search products"
                 value={value}
                 onChange={onChange}

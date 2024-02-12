@@ -44,8 +44,8 @@ const ChangePwd = () => {
         <div className='change-password'>
             <Card className='password-card'>
                 <h3>Change Password</h3>
-                <form onSubmit={handleChangePass} className="--form-control">
-                    <label>Current Password</label>
+                <form name="changepwd" onSubmit={handleChangePass} className="--form-control">
+                    <label htmlFor="oldPassword">Current Password</label>
                     <input
                         type="password"
                         placeholder="Old Password"
@@ -54,7 +54,7 @@ const ChangePwd = () => {
                         value={oldPassword}
                         onChange={handleInputChange}
                     />
-                    <label>Enter new Password</label>
+                    <label htmlFor="password">Enter new Password</label>
                     <input
                         type="password"
                         placeholder="New Password"
@@ -63,7 +63,7 @@ const ChangePwd = () => {
                         value={password}
                         onChange={handleInputChange}
                     />
-                    <label>Confirm new Password</label>
+                    <label htmlFor="password2">Confirm new Password</label>
                     <input
                         type="password"
                         placeholder="Confirm New Password"
@@ -75,7 +75,7 @@ const ChangePwd = () => {
                     <button type="submit" className="--btn --btn-primary">Update Password</button>
                 </form>
             </Card>
-        </div>
+        </div >
     )
 }
 
