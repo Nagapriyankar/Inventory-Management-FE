@@ -7,7 +7,7 @@ import Reset from './pages/auth/Reset'
 import Register from './pages/auth/Register'
 import Sidebar from './components/sidebar/Sidebar'
 import Layout from './components/layout/Layout'
-import Dashboard from './pages/dashboard/Dashboard'      
+import Dashboard from './pages/dashboard/Dashboard'
 import AddProduct from './pages/addProduct/AddProduct'
 import axios from "axios"
 import { ToastContainer } from 'react-toastify'
@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { SET_LOGIN } from './redux/features/auth/authSlice'
 import { getLoginStatus } from './services/authService'
-import ProductDetail from './components/product/productDetail/productDetail'
+import ProductDetail from './components/product/productDetail/ProductDetail'
 import EditProduct from './pages/editProduct/EditProduct'
 import Profile from './pages/profile/Profile'
 import EditProfile from './pages/profile/EditProfile'
@@ -33,13 +33,13 @@ function App() {
   const dispatch = useDispatch()   //dispatch in app is used to store details -logged in or not
 
   //useEffect will run once
-  useEffect(() => { 
+  useEffect(() => {
     async function loginStatus() {
       const status = await getLoginStatus()
       dispatch(SET_LOGIN(status))
     }
     loginStatus()
-  },[dispatch])
+  }, [dispatch])
 
   return (
 
