@@ -31,7 +31,7 @@ export const registerUser = async (userData) => {
 export const loginUser = async (userData) => {
     try {
         const response = await axios.post(
-            `${BE_URL}/api/users/login`,
+            `https://inventory-management-dcd4.onrender.com/api/users/login`,
             userData
         )
         console.log(response.statusText)
@@ -165,7 +165,7 @@ export const changePassword = async (formData) => {
         );
 
         return response.data;
-        
+
     } catch (error) {
         const message =
             (error.response && error.response.data && error.response.data.message) ||
